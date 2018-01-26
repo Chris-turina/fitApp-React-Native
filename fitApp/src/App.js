@@ -5,20 +5,25 @@ import { Button, Header } from './components/common'
 import { WorkoutSelect, WorkoutPage, Home, WorkoutHistory } from './components/workout/';
 
 class App extends Component {
-  state = {
-    workoutName:'jim'
-  };
+  constructor(props) {
+    super(props);
+      this.state = {
+        masterWorkoutList: [
+          {workoutName: 'jim'},
+        ] }
+      ;
+  }
 
   handleChangeWorkoutName(nameVal) {
-    let newWorkoutName = this.state.workoutName;
-    console.log(newWorkoutName);
-    this.setState({workoutName: newWorkoutName})
-
+    let newWorkoutNameArr = this.state.masterWorkoutList.slice();
+    newWorkoutNameArr.push(nameVal);
+    this.setState({masterWorkoutList: newWorkoutNameArr})
+    console.log(this.state);
   }
 
 
   render() {
-    
+    console.log(this.state.masterWorkoutList);
     return (
       <NativeRouter>
         <View>
