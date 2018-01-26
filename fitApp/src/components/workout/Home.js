@@ -1,18 +1,24 @@
 import React, { Component } from 'react';
 import { NativeRouter, Route, Link } from 'react-router-native';
 import { View, Text } from 'react-native';
+import { WorkoutSelect } from './index'
 
 
-class Home extends Component{
-
-  render(){
+function Home (props) {
+  console.log(props);
     return(
       <View>
-        <Text>Home Page</Text>
+          <Link
+            style={styles.buttonStyle}
+            to='/WorkoutSelect'>
+
+              <Text style={styles.textStyle}>
+                Start Workout
+              </Text>
+          </Link>
       </View>
     );
   };
-}
 
 const styles = {
   textStyle: {

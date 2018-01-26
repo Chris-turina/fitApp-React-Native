@@ -4,13 +4,21 @@ import { NativeRouter, Route, Link } from 'react-router-native';
 import { Button, Header } from './components/common'
 import { WorkoutSelect, WorkoutPage, Home, WorkoutHistory } from './components/workout/';
 
-
-
-
 class App extends Component {
+  state = {
+    workoutName:'jim'
+  };
+
+  handleChangeWorkoutName(nameVal) {
+    let newWorkoutName = this.state.workoutName;
+    console.log(newWorkoutName);
+    this.setState({workoutName: newWorkoutName})
+
+  }
 
 
   render() {
+    
     return (
       <NativeRouter>
         <View>
@@ -35,10 +43,10 @@ class App extends Component {
             </Link>
 
           </View>
-          <Route exact path='/' component={Home} />
-          <Route path='/WorkoutPage' component={WorkoutPage} />
-          <Route path='/WorkoutSelect' component={WorkoutSelect} />
-          <Route path='/WorkoutHistory' component={WorkoutHistory} />
+          <Route exact path='/' render={()=> <Home />} />
+          <Route path='/WorkoutPage' render={()=> <WorkoutPage />} />
+          <Route path='/WorkoutSelect' render={()=> <WorkoutSelect changeName={this.handleChangeWorkoutName.bind(this)}/>} />
+          <Route path='/WorkoutHistory' render={()=> <WorkoutHistory />} />
         </View>
       </NativeRouter>
     );

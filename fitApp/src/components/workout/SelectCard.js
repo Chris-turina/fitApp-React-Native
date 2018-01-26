@@ -1,13 +1,19 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { TouchableOpacity, Text } from 'react-native';
 
-const SelectCard = ({workoutName}) => {
+const SelectCard = ({props, workoutName, changeName}) => {
+  console.log('Asdf');
+
+  function handleWorkoutName(){
+    changeName({workoutName})
+  }
+
   return (
-    <View style={styles.viewStyle}>
+    <TouchableOpacity style={styles.viewStyle} onPress={handleWorkoutName}>
       <Text style={styles.textStyle}>
         {workoutName}
       </Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 
