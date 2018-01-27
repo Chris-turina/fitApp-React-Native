@@ -8,22 +8,41 @@ class App extends Component {
   constructor(props) {
     super(props);
       this.state = {
-        masterWorkoutList: [
-          {workoutName: 'jim'},
-        ] }
-      ;
+        masterWorkoutList: [],
+        masterWorkout: [],
+        currentExercise: { exerciseName:'billy', sets:[] },
+
+
+      };
   }
 
-  handleChangeWorkoutName(nameVal) {
-    let newWorkoutNameArr = this.state.masterWorkoutList.slice();
-    newWorkoutNameArr.push(nameVal);
-    this.setState({masterWorkoutList: newWorkoutNameArr})
-    console.log(this.state);
+  // handleChangeWorkoutName(nameVal) {
+  //   let newWorkoutNameArr = this.state.masterWorkoutList.slice();
+  //   newWorkoutNameArr.push(nameVal);
+  //   this.setState({masterWorkoutList: newWorkoutNameArr})
+  //   console.log(this.state);
+  // }
+
+  createNewWorkout(){
+    let newWorkoutArr = this.state.masterWorkout;
+    // console.log(newWorkoutArr);
+
+
+  }
+
+  createNewExercise(newExercise){
+    console.log(newExercise);
+    let newCurrentExersice = this.state.currentExercise.exerciseName;
+    // newCurrentExersice.push(newExercise)
+    console.log(newCurrentExersice);
+
+
+
   }
 
 
   render() {
-    console.log(this.state.masterWorkoutList);
+    // console.log(this.state.currentExercise.exerciseName);
     return (
       <NativeRouter>
         <View>
@@ -35,6 +54,8 @@ class App extends Component {
                 Home
               </Text>
             </Link>
+
+
             <Link style={styles.buttonStyle} to='/WorkoutSelect'>
               <Text style={styles.textStyle}>
                 Start Workout
@@ -48,9 +69,17 @@ class App extends Component {
             </Link>
 
           </View>
-          <Route exact path='/' render={()=> <Home />} />
+          <Route exact path='/'
+          render={()=>
+              <Home
+                newWorkout={this.createNewWorkout.bind(this)} />} />
+
           <Route path='/WorkoutPage' render={()=> <WorkoutPage />} />
-          <Route path='/WorkoutSelect' render={()=> <WorkoutSelect changeName={this.handleChangeWorkoutName.bind(this)}/>} />
+
+          <Route path='/WorkoutSelect' render={()=>
+            <WorkoutSelect
+              newExercise={this.createNewExercise.bind(this)}/>} />
+
           <Route path='/WorkoutHistory' render={()=> <WorkoutHistory />} />
         </View>
       </NativeRouter>

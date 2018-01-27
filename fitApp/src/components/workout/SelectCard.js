@@ -1,19 +1,28 @@
 import React from 'react';
 import { TouchableOpacity, Text } from 'react-native';
+import { Link } from 'react-router-native';
 
-const SelectCard = ({props, workoutName, changeName}) => {
-  console.log('Asdf');
+const SelectCard = ({props, workoutName, newExercise}) => {
 
   function handleWorkoutName(){
-    changeName({workoutName})
+    newExercise({workoutName})
   }
-
+// console.log(newExercise);
+// console.log('thefuck');
   return (
-    <TouchableOpacity style={styles.viewStyle} onPress={handleWorkoutName}>
-      <Text style={styles.textStyle}>
-        {workoutName}
-      </Text>
-    </TouchableOpacity>
+    <Link
+      to='/WorkoutPage'
+      style={styles.viewStyle}
+      onPress={handleWorkoutName}
+      >
+
+        <Text
+          style={styles.textStyle}
+          >
+          {workoutName}
+        </Text>
+
+    </Link>
   );
 };
 

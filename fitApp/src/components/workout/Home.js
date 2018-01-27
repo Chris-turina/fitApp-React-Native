@@ -1,17 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { NativeRouter, Route, Link } from 'react-router-native';
 import { View, Text } from 'react-native';
 import { WorkoutSelect } from './index'
+import { LinkButton } from '../common';
 
+const Home = ({props, newWorkout}) => {
 
-function Home (props) {
-  console.log(props);
+  function handleNewWorkout(){
+    // console.log(newWorkout);
+    newWorkout()
+  }
+
     return(
       <View>
           <Link
             style={styles.buttonStyle}
-            to='/WorkoutSelect'>
-
+            to='/WorkoutSelect'
+            onPress={handleNewWorkout}
+            >
               <Text style={styles.textStyle}>
                 Start Workout
               </Text>

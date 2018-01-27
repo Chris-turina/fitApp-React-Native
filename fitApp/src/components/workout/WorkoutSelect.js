@@ -1,28 +1,29 @@
 import React from 'react';
 import { View, Text } from 'react-native';
+
 import { SelectCard } from './SelectCard';
 
 function WorkoutSelect(props) {
   return(
     <View>
 
-      <SelectCard
-        changeName={props.changeName}
-        workoutName='Pull-Ups'
-      />
+        <SelectCard
+          newExercise={props.newExercise}
+          workoutName='Pull-Ups'
+        />
 
       <SelectCard
-        changeName={props.changeName}
+        newExercise={props.newExercise}
         workoutName='Push-Ups'
       />
 
       <SelectCard
-        changeName={props.changeName}
+        newExercise={props.newExercise}
         workoutName='Dips'
       />
 
       <SelectCard
-        changeName={props.changeName}
+        newExercise={props.newExercise}
         workoutName='Leg Raises'
       />
 
