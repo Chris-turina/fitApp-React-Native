@@ -7,8 +7,7 @@ const SelectCard = ({props, workoutName, newExercise}) => {
   function handleWorkoutName(){
     newExercise({workoutName})
   }
-// console.log(newExercise);
-// console.log('thefuck');
+  
   return (
     <Link
       to='/WorkoutPage'

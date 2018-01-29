@@ -10,39 +10,57 @@ class App extends Component {
       this.state = {
         masterWorkoutList: [],
         masterWorkout: [],
-        currentExercise: { exerciseName:'billy', sets:[] },
-
-
+        exerciseName:'billy',
+        sets:[2,3,4],
+        reps: 0,
       };
   }
-
-  // handleChangeWorkoutName(nameVal) {
-  //   let newWorkoutNameArr = this.state.masterWorkoutList.slice();
-  //   newWorkoutNameArr.push(nameVal);
-  //   this.setState({masterWorkoutList: newWorkoutNameArr})
-  //   console.log(this.state);
-  // }
-
   createNewWorkout(){
     let newWorkoutArr = this.state.masterWorkout;
-    // console.log(newWorkoutArr);
-
-
   }
 
-  createNewExercise(newExercise){
-    console.log(newExercise);
-    let newCurrentExersice = this.state.currentExercise.exerciseName;
-    // newCurrentExersice.push(newExercise)
-    console.log(newCurrentExersice);
-
-
-
+  createNewExercise(newExercise) {
+    let newMasterWorkout = this.state.masterWorkout.slice();
+    let newCurrentExercise = this.state.exerciseName;
+    newCurrentExercise = newExercise;
+    this.setState({exerciseName: newCurrentExercise})
   }
+
+  nextExercise(){
+    let newMasterWorkout = this.state.masterWorkout.slice();
+    let newExerciseName = this.state.exerciseName;
+    let newSetArr = this.state.sets.slice();
+    let newReps = this.state.reps;
+    newMasterWorkout.push({exerciseName: newExerciseName, sets: newSetArr})
+    this.setState({masterWorkout: newMasterWorkout});
+  }
+
+  addSet() {
+    let newSetArr = this.state.sets.slice();
+    let newReps = this.state.reps;
+    newSetArr.push(newReps);
+    console.log(newSetArr);
+    this.setState({sets: newSetArr})
+    newReps = 0;
+    this.setState({reps: newReps})
+  }
+
+  countRepsUp(){
+    let newReps = this.state.reps;
+    newReps+=1;
+    this.setState({reps: newReps})
+  }
+
+  countRepsDown(){
+    let newReps = this.state.reps;
+    newReps-=1;
+    this.setState({reps: newReps})
+  }
+
 
 
   render() {
-    // console.log(this.state.currentExercise.exerciseName);
+    console.log(this.state);
     return (
       <NativeRouter>
         <View>
@@ -71,16 +89,22 @@ class App extends Component {
           </View>
           <Route exact path='/'
           render={()=>
-              <Home
-                newWorkout={this.createNewWorkout.bind(this)} />} />
+              <Home newWorkout={this.createNewWorkout.bind(this)} />}
+          />
 
-          <Route path='/WorkoutPage' render={()=> <WorkoutPage />} />
+          <Route path='/WorkoutPage' render={()=> <WorkoutPage
+            repCountUp={this.countRepsUp.bind(this)}
+            repCountDown={this.countRepsDown.bind(this)}
+            addSet={this.addSet.bind(this)}
+            nextExercise={this.nextExercise.bind(this)} />}
+          />
 
           <Route path='/WorkoutSelect' render={()=>
-            <WorkoutSelect
-              newExercise={this.createNewExercise.bind(this)}/>} />
+            <WorkoutSelect newExercise={this.createNewExercise.bind(this)} />}
+          />
 
           <Route path='/WorkoutHistory' render={()=> <WorkoutHistory />} />
+
         </View>
       </NativeRouter>
     );

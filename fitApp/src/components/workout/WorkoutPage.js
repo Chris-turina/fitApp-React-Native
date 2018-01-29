@@ -1,15 +1,42 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
+import { Link } from 'react-router-native';
+import { Button } from '../common';
 
-const WorkoutPage = () => {
+const WorkoutPage = (props) => {
+
+function handleCountUp(){
+  props.repCountUp();
+}
+
+function handleCountDown(){
+  props.repCountDown();
+}
+
+function handleAddSet(){
+  props.addSet();
+}
+
+function handleNextExercise(){
+  props.nextExercise();
+}
+
   return (
     <View style={styles.containerStyles}>
       <View style={styles.titleContainer}>
         <Text style={styles.titleTextStyle}> Workout Page </Text>
       </View>
-      <TouchableOpacity style={styles.titleContainer}>
-      <Text> End Workout </Text>
-        </TouchableOpacity>
+      <Link to='/'
+        style={styles.titleContainer}
+        onPress={handleNextExercise}
+        >
+        <Text> Next Exersice </Text>
+      </Link>
+      <Button onPress={handleCountUp}>Plus</Button>
+      <Button onPress={handleCountDown}>Minus</Button>
+      <Button onPress={handleAddSet}>Add Set</Button>
+
+
     </View>
   )
 }
