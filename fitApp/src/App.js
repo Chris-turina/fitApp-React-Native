@@ -69,7 +69,6 @@ class App extends Component {
   }
 
   endWorkout(){
-    console.log('brandon');
     let newMasterWorkoutList = this.state.masterWorkoutList;
     let newMasterWorkout = this.state.masterWorkout;
     let newSetArr = this.state.sets.slice();
@@ -94,7 +93,7 @@ class App extends Component {
 
 
   render() {
-    console.log(this.state);
+    // console.log(this.state);
     return (
       <NativeRouter>
         <View>
@@ -126,14 +125,14 @@ class App extends Component {
               <Home newWorkout={this.createNewWorkout.bind(this)} />}
           />
 
-          <Route path='/WorkoutPage' render={()=> <WorkoutPage
-            repCountUp={this.countRepsUp.bind(this)}
-            repCountDown={this.countRepsDown.bind(this)}
-            addSet={this.addSet.bind(this)}
-            nextExercise={this.nextExercise.bind(this)}
-            state={this.state}
-            endWorkout={this.endWorkout.bind(this)}
-
+          <Route path='/WorkoutPage' render={()=>
+            <WorkoutPage
+              repCountUp={this.countRepsUp.bind(this)}
+              repCountDown={this.countRepsDown.bind(this)}
+              addSet={this.addSet.bind(this)}
+              nextExercise={this.nextExercise.bind(this)}
+              state={this.state}
+              endWorkout={this.endWorkout.bind(this)}
             />}
           />
 
@@ -141,7 +140,10 @@ class App extends Component {
             <WorkoutSelect newExercise={this.createNewExercise.bind(this)} />}
           />
 
-          <Route path='/WorkoutHistory' render={()=> <WorkoutHistory />} />
+          <Route path='/WorkoutHistory' render={()=>
+            <WorkoutHistory
+              masterList={this.state.masterWorkoutList}
+            />} />
 
         </View>
       </NativeRouter>

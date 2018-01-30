@@ -1,10 +1,15 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-const WorkoutHistory =() => {
+const WorkoutHistory =(props) => {
+
+function check(){
+  console.log(props);
+}
+
   return (
     <View>
-      <Text>Workout History Page</Text>
+      <Text onPress={check}>{props.masterList}</Text>
     </View>
   )
 }

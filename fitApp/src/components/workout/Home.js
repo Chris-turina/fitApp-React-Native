@@ -15,10 +15,17 @@ const Home = ({props, newWorkout}) => {
           <Link
             style={styles.buttonStyle}
             to='/WorkoutSelect'
-            onPress={handleNewWorkout}
-            >
+            onPress={handleNewWorkout}>
               <Text style={styles.textStyle}>
                 Start Workout
+              </Text>
+          </Link>
+
+          <Link
+            style={styles.buttonStyle}
+            to='/WorkoutHistory' >
+              <Text style={styles.textStyle}>
+                Workout History
               </Text>
           </Link>
       </View>
