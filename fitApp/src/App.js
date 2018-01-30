@@ -8,7 +8,16 @@ class App extends Component {
   constructor(props) {
     super(props);
       this.state = {
-        masterWorkoutList: [],
+        masterWorkoutList: [
+          [
+            {exerciseName: 'pullups', sets: [14, 9]},
+            {exerciseName: 'pullups', sets: [13, 9]},
+          ],
+          [
+            {exerciseName: 'pushups', sets: [12, 9]},
+            {exerciseName: 'pushups', sets: [11, 9]},
+          ]
+        ],
         masterWorkout: [],
         exerciseName:'',
         sets:[],
@@ -85,7 +94,7 @@ class App extends Component {
     this.setState({reps: newReps,
                    setNumber: newSetNumber,
                    masterWorkoutList: newMasterWorkoutList,
-                   newMasterWorkout: newMasterWorkout,
+                   masterWorkout: newMasterWorkout,
                    sets: newSetArr,
                    exerciseName: newExerciseName})
   }
@@ -93,7 +102,7 @@ class App extends Component {
 
 
   render() {
-    // console.log(this.state);
+    console.log(this.state);
     return (
       <NativeRouter>
         <View>
