@@ -7,8 +7,7 @@ import { LinkButton } from '../common';
 const Home = ({props, newWorkout}) => {
 
   function handleNewWorkout(){
-    // console.log(newWorkout);
-    newWorkout()
+    newWorkout();
   }
 
     return(

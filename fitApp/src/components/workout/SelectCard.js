@@ -5,19 +5,18 @@ import { Link } from 'react-router-native';
 const SelectCard = ({props, workoutName, newExercise}) => {
 
   function handleWorkoutName(){
-    newExercise({workoutName})
+    newExercise(workoutName)
   }
-  
+
   return (
     <Link
       to='/WorkoutPage'
       style={styles.viewStyle}
       onPress={handleWorkoutName}
-      >
+    >
 
         <Text
-          style={styles.textStyle}
-          >
+          style={styles.textStyle}>
           {workoutName}
         </Text>
 

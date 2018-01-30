@@ -10,8 +10,9 @@ class App extends Component {
       this.state = {
         masterWorkoutList: [],
         masterWorkout: [],
-        exerciseName:'billy',
-        sets:[2,3,4],
+        exerciseName:'',
+        sets:[],
+        setNumber: 1,
         reps: 0,
       };
   }
@@ -20,6 +21,7 @@ class App extends Component {
   }
 
   createNewExercise(newExercise) {
+    console.log(newExercise);
     let newMasterWorkout = this.state.masterWorkout.slice();
     let newCurrentExercise = this.state.exerciseName;
     newCurrentExercise = newExercise;
@@ -31,18 +33,27 @@ class App extends Component {
     let newExerciseName = this.state.exerciseName;
     let newSetArr = this.state.sets.slice();
     let newReps = this.state.reps;
+    let newSetNumber = this.state.setNumber;
+    newSetArr.push(newReps);
+    newReps = 0;
+    newSetNumber = 1;
     newMasterWorkout.push({exerciseName: newExerciseName, sets: newSetArr})
-    this.setState({masterWorkout: newMasterWorkout});
+    newSetArr = [];
+    this.setState({masterWorkout: newMasterWorkout,
+                   sets: newSetArr,
+                   reps: newReps,
+                   setNumber: newSetNumber});
   }
 
   addSet() {
     let newSetArr = this.state.sets.slice();
     let newReps = this.state.reps;
+    let newSetNumber = this.state.setNumber;
     newSetArr.push(newReps);
-    console.log(newSetArr);
     this.setState({sets: newSetArr})
     newReps = 0;
-    this.setState({reps: newReps})
+    newSetNumber +=1;
+    this.setState({setNumber: newSetNumber, reps: newReps})
   }
 
   countRepsUp(){
@@ -55,6 +66,29 @@ class App extends Component {
     let newReps = this.state.reps;
     newReps-=1;
     this.setState({reps: newReps})
+  }
+
+  endWorkout(){
+    console.log('brandon');
+    let newMasterWorkoutList = this.state.masterWorkoutList;
+    let newMasterWorkout = this.state.masterWorkout;
+    let newSetArr = this.state.sets.slice();
+    let newExerciseName = this.state.exerciseName;
+    let newReps = this.state.reps;
+
+    newSetArr.push(newReps);
+    newReps = 0;
+    newSetNumber = 1;
+    newMasterWorkoutList.push(newMasterWorkout);
+    newMasterWorkout = [];
+    newSetArr = [];
+    newExerciseName = '';
+    this.setState({reps: newReps,
+                   setNumber: newSetNumber,
+                   masterWorkoutList: newMasterWorkoutList,
+                   newMasterWorkout: newMasterWorkout,
+                   sets: newSetArr,
+                   exerciseName: newExerciseName})
   }
 
 
@@ -96,7 +130,11 @@ class App extends Component {
             repCountUp={this.countRepsUp.bind(this)}
             repCountDown={this.countRepsDown.bind(this)}
             addSet={this.addSet.bind(this)}
-            nextExercise={this.nextExercise.bind(this)} />}
+            nextExercise={this.nextExercise.bind(this)}
+            state={this.state}
+            endWorkout={this.endWorkout.bind(this)}
+
+            />}
           />
 
           <Route path='/WorkoutSelect' render={()=>
