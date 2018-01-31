@@ -8,7 +8,36 @@ class App extends Component {
   constructor(props) {
     super(props);
       this.state = {
-        masterWorkoutList: [],
+        masterWorkoutList: [
+          [
+            {exerciseName: 'pullups', sets: [14, 9]},
+            {exerciseName: 'pullups', sets: [13, 9]},
+            {exerciseName: 'pullups', sets: [13, 9]},
+            {exerciseName: 'pullups', sets: [13, 9]},
+            {exerciseName: 'pullups', sets: [13, 9]},
+            {exerciseName: 'pullups', sets: [13, 9]},
+          ],
+          [
+            {exerciseName: 'pushups', sets: [12, 9]},
+            {exerciseName: 'pushups', sets: [11, 9]},
+            {exerciseName: 'pullups', sets: [13, 9]},
+            {exerciseName: 'pullups', sets: [13, 9]},
+            {exerciseName: 'pullups', sets: [13, 9]},
+            {exerciseName: 'pullups', sets: [13, 9]},
+            {exerciseName: 'pullups', sets: [13, 9]},
+            {exerciseName: 'pullups', sets: [13, 9]},
+          ],
+          [
+            {exerciseName: 'pushups', sets: [12, 9]},
+            {exerciseName: 'pushups', sets: [11, 9]},
+            {exerciseName: 'pullups', sets: [13, 9]},
+            {exerciseName: 'pullups', sets: [13, 9]},
+            {exerciseName: 'pullups', sets: [13, 9]},
+            {exerciseName: 'pullups', sets: [13, 9]},
+            {exerciseName: 'pullups', sets: [13, 9]},
+            {exerciseName: 'pullups', sets: [13, 9]},
+          ]
+        ],
         masterWorkout: [],
         exerciseName:'',
         sets:[],
@@ -108,28 +137,7 @@ class App extends Component {
       <NativeRouter>
         <View>
           <Header headerText="Fit App" />
-            <View style={styles.viewStyle}>
 
-            <Link style={styles.buttonStyle} to='/'>
-              <Text style={styles.textStyle}>
-                Home
-              </Text>
-            </Link>
-
-
-            <Link style={styles.buttonStyle} to='/WorkoutSelect'>
-              <Text style={styles.textStyle}>
-                Start Workout
-              </Text>
-            </Link>
-
-            <Link style={styles.buttonStyle} to='/WorkoutHistory'>
-              <Text style={styles.textStyle}>
-                History
-              </Text>
-            </Link>
-
-          </View>
           <Route exact path='/'
           render={()=>
               <Home newWorkout={this.createNewWorkout.bind(this)} />}

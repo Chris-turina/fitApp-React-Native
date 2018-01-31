@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { Link } from 'react-router-native';
-import { Button } from '../common';
+import { Button, Button2 } from '../common';
 
 const WorkoutPage = (props) => {
 
@@ -40,16 +40,17 @@ function handleEndWOrkout(){
 
       <View style={styles.numbersContainer}>
         <View style={styles.repContainer}>
-          <Text style={styles.repNumberText}>{props.state.reps}</Text>
-          <Text style={styles.repText}>reps</Text>
+            <Text style={styles.repNumberText}>{props.state.reps}</Text>
         </View>
-        <Text>Set: {props.state.setNumber}</Text>
+        <View style={styles.setContainer}>
+          <Text>Set: {props.state.setNumber}</Text>
+        </View>
       </View>
 
       <View style={styles.buttonContainer}>
-        <Button onPress={handleCountDown}>Minus</Button>
+        <Button2 onPress={handleCountDown}>Minus</Button2>
         <Button onPress={handleAddSet}>Add Set</Button>
-        <Button onPress={handleCountUp}>Plus</Button>
+        <Button2 onPress={handleCountUp}>Plus</Button2>
       </View>
 
       <Link to='/WorkoutSelect'
@@ -66,15 +67,15 @@ function handleEndWOrkout(){
 const styles = {
   containerStyles: {
     display: 'flex',
-    height: 544,
     alignItems: 'center',
+    height: 544,
+    justifyContent: 'space-between'
   },
   titleContainer: {
     alignItems: 'center',
     borderRadius: 5,
     borderWidth: 2,
     borderColor: '#007aff',
-    marginBottom: 20,
     width: '100%'
   },
   titleTextStyle: {
@@ -88,7 +89,7 @@ const styles = {
     marginBottom: 5,
     marginLeft: 5,
     marginRight: 5,
-    width: '100%',
+    width: '95%',
 
   },
   nextTextStyle: {
@@ -100,28 +101,33 @@ const styles = {
     paddingBottom: 10,
   },
   repNumberText: {
-    fontSize: 50,
-  },
-  repText:{
-    marginLeft: 10
+    fontSize: 70,
   },
   repContainer: {
-    borderBottomWidth: 2,
-    borderBottomColor: '#007aff',
     flexDirection: 'row',
-    alignItems: 'baseline',
-    justifyContent: 'center'
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexGrow: 2,
   },
   numbersContainer: {
-    borderRadius: 5,
-    borderWidth: 2,
+    borderRadius: 100,
+    borderWidth: 4,
     borderColor: '#007aff',
-    height: 150,
+    height: 200,
     justifyContent: 'space-around',
-    width: 150,
+    alignItems: 'center',
+    width: 200,
   },
   buttonContainer: {
     flexDirection: 'row'
+  },
+  setContainer: {
+    flexGrow: 1,
+    borderTopWidth: 2,
+    borderTopColor: '#007aff',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 174,
   }
 }
 

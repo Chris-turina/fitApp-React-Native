@@ -4,7 +4,7 @@ import { View, Text } from 'react-native';
 const WorkoutHistoryCard = (props) => {
   return(
     <View style={styles.containerStyles}>
-      {props.exercisez}
+      {props.workouts}
     </View>
   )
 }
