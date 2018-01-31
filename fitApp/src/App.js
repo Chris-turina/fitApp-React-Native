@@ -8,16 +8,7 @@ class App extends Component {
   constructor(props) {
     super(props);
       this.state = {
-        masterWorkoutList: [
-          [
-            {exerciseName: 'pullups', sets: [14, 9]},
-            {exerciseName: 'pullups', sets: [13, 9]},
-          ],
-          [
-            {exerciseName: 'pushups', sets: [12, 9]},
-            {exerciseName: 'pushups', sets: [11, 9]},
-          ]
-        ],
+        masterWorkoutList: [],
         masterWorkout: [],
         exerciseName:'',
         sets:[],
@@ -83,20 +74,30 @@ class App extends Component {
     let newSetArr = this.state.sets.slice();
     let newExerciseName = this.state.exerciseName;
     let newReps = this.state.reps;
-
+    let newSetNumber = this.state.setNumber;
     newSetArr.push(newReps);
-    newReps = 0;
-    newSetNumber = 1;
+    newMasterWorkout.push({exerciseName: newExerciseName, sets: newSetArr})
     newMasterWorkoutList.push(newMasterWorkout);
-    newMasterWorkout = [];
-    newSetArr = [];
-    newExerciseName = '';
     this.setState({reps: newReps,
                    setNumber: newSetNumber,
                    masterWorkoutList: newMasterWorkoutList,
                    masterWorkout: newMasterWorkout,
                    sets: newSetArr,
-                   exerciseName: newExerciseName})
+                   exerciseName: newExerciseName
+                 })
+   newMasterWorkout = [];
+   newExerciseName = '';
+   newSetArr = [];
+   newReps = 0;
+   newSetNumber = 1;
+   this.setState({reps: newReps,
+                  setNumber: newSetNumber,
+                  masterWorkoutList: newMasterWorkoutList,
+                  masterWorkout: newMasterWorkout,
+                  sets: newSetArr,
+                  exerciseName: newExerciseName})
+
+
   }
 
 

@@ -12,7 +12,7 @@ const ExerciseCard = (props) => {
 
 const styles = {
   containerStyles: {
-    borderBottomWidth: 3
+    borderBottomWidth: 1
   }
 }
 

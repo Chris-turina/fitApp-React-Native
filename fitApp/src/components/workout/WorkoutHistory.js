@@ -6,13 +6,8 @@ import { Rep } from './Rep';
 
 const WorkoutHistory =(props) => {
 
-function listWorkouts(){
-  console.log(props.masterList);
-}
-
   return (
     <View>
-      <Text onPress={listWorkouts}>press me</Text>
       {props.masterList.map((workoutList, index) =>
         <WorkoutHistoryCard
           exercisez={workoutList.map((exercise, index) =>
@@ -21,6 +16,7 @@ function listWorkouts(){
               set={exercise.sets.map((set, index) =>
                 <Rep
                   reps={set}
+                  key={index}
                 />
               )}
               key={index}
