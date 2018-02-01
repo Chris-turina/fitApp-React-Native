@@ -1,8 +1,8 @@
 import React from 'react';
 import { NativeRouter, Route, Link } from 'react-router-native';
 import { View, Text } from 'react-native';
-import { WorkoutSelect } from './index'
 import { LinkButton } from '../common';
+import { NameWorkout } from './index';
 
 const Home = ({props, newWorkout}) => {
 

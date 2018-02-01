@@ -5,3 +5,4 @@ export * from './SelectCard';
 export * from './WorkoutHistory';
 export * from './WorkoutHistoryCard';
 export * from './ExerciseCard';
+export * from './NameWorkout';

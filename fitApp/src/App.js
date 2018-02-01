@@ -2,49 +2,37 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { NativeRouter, Route, Link } from 'react-router-native';
 import { Button, Header } from './components/common'
-import { WorkoutSelect, WorkoutPage, Home, WorkoutHistory } from './components/workout/';
+import { WorkoutSelect,
+         WorkoutPage,
+         Home,
+         WorkoutHistory,
+         NameWorkout } from './components/workout/';
+import { defaultState } from './defaultState';
 
 class App extends Component {
   constructor(props) {
     super(props);
       this.state = {
-        masterWorkoutList: [
-          [
-            {exerciseName: 'pullups', sets: [14, 9]},
-            {exerciseName: 'pullups', sets: [13, 9]},
-            {exerciseName: 'pullups', sets: [13, 9]},
-            {exerciseName: 'pullups', sets: [13, 9]},
-            {exerciseName: 'pullups', sets: [13, 9]},
-            {exerciseName: 'pullups', sets: [13, 9]},
-          ],
-          [
-            {exerciseName: 'pushups', sets: [12, 9]},
-            {exerciseName: 'pushups', sets: [11, 9]},
-            {exerciseName: 'pullups', sets: [13, 9]},
-            {exerciseName: 'pullups', sets: [13, 9]},
-            {exerciseName: 'pullups', sets: [13, 9]},
-            {exerciseName: 'pullups', sets: [13, 9]},
-            {exerciseName: 'pullups', sets: [13, 9]},
-            {exerciseName: 'pullups', sets: [13, 9]},
-          ],
-          [
-            {exerciseName: 'pushups', sets: [12, 9]},
-            {exerciseName: 'pushups', sets: [11, 9]},
-            {exerciseName: 'pullups', sets: [13, 9]},
-            {exerciseName: 'pullups', sets: [13, 9]},
-            {exerciseName: 'pullups', sets: [13, 9]},
-            {exerciseName: 'pullups', sets: [13, 9]},
-            {exerciseName: 'pullups', sets: [13, 9]},
-            {exerciseName: 'pullups', sets: [13, 9]},
-          ]
-        ],
+        masterWorkoutList: [],
         masterWorkout: [],
+        workoutName:'',
         exerciseName:'',
         sets:[],
         setNumber: 1,
         reps: 0,
       };
+
   }
+
+componentWillMount(){
+  let newmasterWorkoutList = this.state.masterWorkoutList;
+  console.log(newmasterWorkoutList);
+  newmasterWorkoutList = defaultState.masterWorkoutList;
+  console.log(newmasterWorkoutList);
+  this.setState({masterWorkoutList: newmasterWorkoutList})
+}
+
+
   createNewWorkout(){
     let newWorkoutArr = this.state.masterWorkout;
   }
@@ -129,10 +117,12 @@ class App extends Component {
 
   }
 
+  addWorkoutName(){
+  }
 
 
   render() {
-    console.log(this.state);
+    // console.log(this.state);
     return (
       <NativeRouter>
         <View>
@@ -161,7 +151,12 @@ class App extends Component {
           <Route path='/WorkoutHistory' render={()=>
             <WorkoutHistory
               masterList={this.state.masterWorkoutList}
-            />} />
+            />}
+          />
+
+          <Route path='/NameWorkout' render={()=>
+            <NameWorkout
+              workoutName={this.addWorkoutName.bind(this)}/>} />
 
         </View>
       </NativeRouter>
