@@ -11,7 +11,7 @@ const WorkoutHistoryCard = (props) => {
 
 const styles = {
   containerStyles: {
-    borderBottomWidth: 5
+    borderWidth: 5
   }
 }
 

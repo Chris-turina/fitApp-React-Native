@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { Link } from 'react-router-native';
-import { Button, Button2 } from '../common';
+import { Button, Plus, Minus } from '../common';
 
 const WorkoutPage = (props) => {
 
@@ -22,7 +22,7 @@ function handleNextExercise(){
   props.nextExercise();
 }
 
-function handleEndWOrkout(){
+function handleEndWorkout(){
   props.endWorkout();
 }
 
@@ -32,25 +32,26 @@ function handleEndWOrkout(){
         <Text style={styles.titleTextStyle}> {props.state.exerciseName} </Text>
       </View>
 
-      <Link to='/'
-        style={styles.titleContainer}
-        onPress={handleEndWOrkout}>
-          <Text> End Workout </Text>
-      </Link>
-
       <View style={styles.numbersContainer}>
-        <View style={styles.repContainer}>
-            <Text style={styles.repNumberText}>{props.state.reps}</Text>
+        <Minus onPress={handleCountDown}>Minus</Minus>
+        <View >
+          <View style={styles.repContainer}>
+              <Text style={styles.repNumberText}>{props.state.reps}</Text>
+          </View>
+          <View style={styles.setContainer}>
+            <Text style={text.color}>Set: {props.state.setNumber}</Text>
+          </View>
         </View>
-        <View style={styles.setContainer}>
-          <Text>Set: {props.state.setNumber}</Text>
-        </View>
+        <Plus onPress={handleCountUp}>Plus</Plus>
       </View>
 
-      <View style={styles.buttonContainer}>
-        <Button2 onPress={handleCountDown}>Minus</Button2>
+      <View style={styles.endAdd}>
+        <Link to='/'
+        style={styles.buttonContainer}
+          onPress={handleEndWorkout}>
+            <Text style={text.colorsize}> End Workout </Text>
+        </Link>
         <Button onPress={handleAddSet}>Add Set</Button>
-        <Button2 onPress={handleCountUp}>Plus</Button2>
       </View>
 
       <Link to='/WorkoutSelect'
@@ -63,29 +64,40 @@ function handleEndWOrkout(){
     </View>
   )
 }
+const text = {
+  color: {
+    color: 'white',
+  },
+  colorsize: {
+    fontSize: 18,
+    color: 'white',
 
+  }
+}
 const styles = {
   containerStyles: {
     display: 'flex',
     alignItems: 'center',
-    height: 480,
+    height: '97%',
     justifyContent: 'space-between'
   },
   titleContainer: {
     alignItems: 'center',
-    borderRadius: 5,
-    borderWidth: 2,
-    borderColor: '#007aff',
-    width: '100%'
+    borderBottomWidth: 2,
+    borderBottomColor: '#9B9B9B',
+    width: '100%',
+    backgroundColor: 'black',
   },
   titleTextStyle: {
-    fontSize: 30
+    fontSize: 50,
+    color: 'white',
   },
   nextContainer: {
     alignItems: 'center',
-    borderRadius: 5,
-    borderWidth: 2,
-    borderColor: '#007aff',
+    borderRadius: 10,
+    borderWidth: 3,
+    borderColor: '#9B9B9B',
+    backgroundColor: 'black',
     marginBottom: 5,
     marginLeft: 5,
     marginRight: 5,
@@ -94,42 +106,63 @@ const styles = {
   },
   nextTextStyle: {
     alignSelf: 'center',
-    color: '#007aff',
-    fontSize: 16,
+    color: 'white',
+    fontSize: 20,
     fontWeight: '600',
     paddingTop: 10,
     paddingBottom: 10,
   },
   repNumberText: {
-    fontSize: 70,
+    fontSize: 100,
+    color: 'white',
   },
   repContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     flexGrow: 2,
+    width: '100%',
+
   },
   numbersContainer: {
-    borderRadius: 100,
-    borderWidth: 4,
-    borderColor: '#007aff',
-    height: 200,
+    flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    width: 200,
+    borderRadius: 10,
+    borderWidth: 4,
+    borderColor: '#9B9B9B',
+    backgroundColor: 'black',
+    height: 200,
+    width: '100%',
+    shadowColor: 'black',
+    shadowOffset: {width: 5, height: 5},
+    shadowOpacity: .8,
   },
   buttonContainer: {
-    flexDirection: 'row',
+    backgroundColor: 'black',
+    borderRadius: 10,
+    borderWidth: 3,
+    borderColor: '#9B9B9B',
+    marginLeft: 5,
+    marginRight: 5,
+    height: 50,
     justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: 'black',
+    shadowOffset: {width: 5, height: 5},
+    shadowOpacity: .8,
+    padding: 20,
+
   },
   setContainer: {
     flexGrow: 1,
-    borderTopWidth: 2,
-    borderTopColor: '#007aff',
+
     alignItems: 'center',
     justifyContent: 'center',
-    width: 174,
-  }
+  },
+    endAdd: {
+      flexDirection: 'row',
+    }
 }
 
 export {WorkoutPage};

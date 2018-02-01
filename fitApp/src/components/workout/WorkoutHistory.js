@@ -4,6 +4,7 @@ import { Link } from 'react-router-native'
 import { WorkoutHistoryCard } from './WorkoutHistoryCard';
 import { ExerciseCard } from './ExerciseCard';
 import { Rep } from './Rep';
+import { Footer } from '../common';
 
 const WorkoutHistory =(props) => {
 
@@ -29,31 +30,32 @@ const WorkoutHistory =(props) => {
           />
         )}
       </ScrollView>
-      <View style={styles.logoContainer}>
-        <Link
-          to='/' >
-          <Image
-            style={styles.logoStyle}
-            source={require('../../img/round-logo.png')}
-          />
-        </Link>
-      </View>
+      <Link to='/'>
+        <Footer
+          style={styles.footer}
+        />
+      </Link>
     </View>
   )
 }
 
 const styles = {
   container: {
+    backgroundColor: '#5A5959',
+    height: '97%',
 
   },
   logoContainer: {
     alignItems: 'center',
-    width: 375,
+    width: '100%',
     bottom: 0,
   },
   logoStyle: {
     height: 60,
     width: 60
+  },
+  footer: {
+    width: '100%',
   }
 }
 

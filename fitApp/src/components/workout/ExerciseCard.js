@@ -4,7 +4,7 @@ import { View, Text } from 'react-native';
 const ExerciseCard = (props) => {
   return(
     <View style={styles.containerStyles}>
-      <Text>{props.exercises}</Text>
+      <Text style={styles.text}>{props.exercises}</Text>
       {props.set}
     </View>
   )
@@ -13,6 +13,9 @@ const ExerciseCard = (props) => {
 const styles = {
   containerStyles: {
     borderBottomWidth: 1
+  },
+  text: {
+    color: 'white',
   }
 }
 

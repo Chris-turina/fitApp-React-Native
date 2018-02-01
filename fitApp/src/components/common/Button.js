@@ -15,24 +15,27 @@ const Button = ({ onPress, children }) => {
 const styles = {
   textStyle: {
     alignSelf: 'center',
-    color: '#007aff',
-    fontSize: 16,
+    color: 'white',
+    fontSize: 18,
     fontWeight: '600',
     paddingTop: 10,
     paddingBottom: 10,
   },
   buttonStyle: {
     alignSelf: 'stretch',
-    backgroundColor: '#fff',
+    backgroundColor: 'black',
     borderRadius: 10,
-    borderWidth: 2,
-    borderColor: '#007aff',
+    borderWidth: 3,
+    borderColor: '#9B9B9B',
     marginLeft: 5,
     marginRight: 5,
-    width: 75,
     height: 50,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    shadowColor: 'black',
+    shadowOffset: {width: 5, height: 5},
+    shadowOpacity: .8,
+    padding: 20,
   }
 };
 
