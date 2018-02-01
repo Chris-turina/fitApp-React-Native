@@ -26,9 +26,9 @@ class App extends Component {
 
 componentWillMount(){
   let newmasterWorkoutList = this.state.masterWorkoutList;
-  console.log(newmasterWorkoutList);
+  // console.log(newmasterWorkoutList);
   newmasterWorkoutList = defaultState.masterWorkoutList;
-  console.log(newmasterWorkoutList);
+  // console.log(newmasterWorkoutList);
   this.setState({masterWorkoutList: newmasterWorkoutList})
 }
 
@@ -38,7 +38,7 @@ componentWillMount(){
   }
 
   createNewExercise(newExercise) {
-    console.log(newExercise);
+    // console.log(newExercise);
     let newMasterWorkout = this.state.masterWorkout.slice();
     let newCurrentExercise = this.state.exerciseName;
     newCurrentExercise = newExercise;

@@ -5,17 +5,24 @@ const ExerciseCard = (props) => {
   return(
     <View style={styles.containerStyles}>
       <Text style={styles.text}>{props.exercises}</Text>
-      {props.set}
+      <View style={styles.rep}>
+        {props.set}
+      </View>
     </View>
   )
 }
 
 const styles = {
   containerStyles: {
-    borderBottomWidth: 1
+    borderBottomWidth: 1,
   },
   text: {
     color: 'white',
+    fontSize: 30,
+    textAlign: 'center' 
+  },
+  rep: {
+    flexDirection: 'row',
   }
 }
 

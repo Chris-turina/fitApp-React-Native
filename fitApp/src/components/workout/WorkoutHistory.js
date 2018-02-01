@@ -56,6 +56,9 @@ const styles = {
   },
   footer: {
     width: '100%',
+  },
+  reps: {
+    flexDirection: 'row',
   }
 }
 
