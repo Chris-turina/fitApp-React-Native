@@ -34,7 +34,7 @@ const WorkoutHistory =(props) => {
           to='/' >
           <Image
             style={styles.logoStyle}
-            source={require('./round-logo.png')}
+            source={require('../../img/round-logo.png')}
           />
         </Link>
       </View>

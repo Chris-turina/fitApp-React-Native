@@ -28,15 +28,15 @@ function handleEndWOrkout(){
 
   return (
     <View style={styles.containerStyles}>
+      <View style={styles.titleContainer}>
+        <Text style={styles.titleTextStyle}> {props.state.exerciseName} </Text>
+      </View>
+
       <Link to='/'
         style={styles.titleContainer}
         onPress={handleEndWOrkout}>
           <Text> End Workout </Text>
       </Link>
-
-      <View style={styles.titleContainer}>
-        <Text style={styles.titleTextStyle}> {props.state.exerciseName} </Text>
-      </View>
 
       <View style={styles.numbersContainer}>
         <View style={styles.repContainer}>
@@ -56,7 +56,7 @@ function handleEndWOrkout(){
       <Link to='/WorkoutSelect'
         style={styles.nextContainer}
         onPress={handleNextExercise}>
-          <Text style={styles.nextTextStyle}> Next Exersice </Text>
+          <Text style={styles.nextTextStyle}> Next Exercise </Text>
       </Link>
 
 
@@ -68,7 +68,7 @@ const styles = {
   containerStyles: {
     display: 'flex',
     alignItems: 'center',
-    height: 544,
+    height: 480,
     justifyContent: 'space-between'
   },
   titleContainer: {
@@ -119,7 +119,8 @@ const styles = {
     width: 200,
   },
   buttonContainer: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    justifyContent: 'center',
   },
   setContainer: {
     flexGrow: 1,

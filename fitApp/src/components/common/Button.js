@@ -24,14 +24,18 @@ const styles = {
   buttonStyle: {
     alignSelf: 'stretch',
     backgroundColor: '#fff',
-    borderRadius: 5,
+    borderRadius: 10,
     borderWidth: 2,
     borderColor: '#007aff',
     marginLeft: 5,
     marginRight: 5,
-    width: 100,
+    width: 75,
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 };
+
 
 // export default Button;
 export { Button };

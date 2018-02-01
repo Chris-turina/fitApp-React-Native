@@ -125,8 +125,8 @@ componentWillMount(){
     // console.log(this.state);
     return (
       <NativeRouter>
-        <View>
-          <Header headerText="Fit App" />
+        <View style={styles.body}>
+          <Header />
 
           <Route exact path='/'
           render={()=>
@@ -165,6 +165,11 @@ componentWillMount(){
 }
 
 const styles = {
+  body: {
+    backgroundColor: '#800606',
+    height: '100%',
+    borderColor: 'white',
+  },
   viewStyle: {
     display: 'flex',
     flexDirection: 'row'

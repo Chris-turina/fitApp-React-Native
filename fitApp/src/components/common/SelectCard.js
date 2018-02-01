@@ -29,13 +29,17 @@ const styles = {
     height: 100,
     marginLeft: 5,
     marginRight: 5,
-    backgroundColor: '#4A90E2',
+    backgroundColor: 'black',
     marginTop: 5,
     justifyContent: 'center',
     alignItems: 'center',
+    borderRadius: 10,
+    borderColor: '#9B9B9B',
+    borderWidth: 3,
   },
   textStyle: {
     fontSize: 35,
+    color: 'white',
   }
 };
 
